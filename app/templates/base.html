@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html {% block html_attribs %}lang="en"{% endblock html_attribs %}>
 {% block html %}
-<head>
+<link>
     {% block head %}
     {% block metatags %}
     <!-- meta tags -->
@@ -9,17 +9,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock metatags %}
 
+    <title>{% block title %}{{title|default}}{% endblock %}</title>
+
     {% block styles %}
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="static/css/main.css" />
     {% endblock styles %}
-
-    <title>{% block title %}{{title|default}}{% endblock %}</title>
     {% endblock head %}
 </head>
 <body>
-    {% block body %}
-    {% endblock body %}
+    <header class="fixed-top">
+      <nav id="navPages" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">NR</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-right ml-auto text-right">
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgOne">Welcome <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgProfile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgExperience">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgEducation">Education</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgSkills">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgProjects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link smoothscroll" href="#pgContact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="content-wrapper">
+        {% block content %}
+        {% endblock content %}
+        </div>
+    </main>
+    {% block footer %}
+    <!-- Footer Section -->
+    <footer class="page page-white">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col">
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% endblock footer %}
     {% block scripts %}
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
